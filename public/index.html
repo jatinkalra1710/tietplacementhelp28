@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thapar Seniors Circle · Free placement guidance for Thapar students</title>
+<meta name="description" content="A free community where Thapar seniors guide students of batches 2028–2030 through internships and placements.">
+<script>document.documentElement.dataset.theme=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script src="/api/config"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/app.js" defer></script>
+</head>
+<body>
+<header class="nav"><div class="wrap nb">
+  <a class="logo" href="#/"><span class="lg">&lt;/&gt;</span> Seniors<b>Circle</b></a>
+  <nav class="nl"><a href="#/" data-s="features">Features</a><a href="#/" data-s="how">How it works</a><a href="#/mentor">Become a mentor</a><a href="#/" data-s="faq">FAQ</a></nav>
+  <div class="row r">
+    <button class="btn g ic" id="theme" aria-label="Toggle theme">🌙</button>
+    <a class="btn g" href="#/dashboard" id="nIn">Login</a><a class="btn g hide" href="#/dashboard" id="nDash">Dashboard</a><button class="btn g hide" id="nOut">Logout</button>
+    <a class="btn" href="#/" data-s="apply" id="nApply">Register</a>
+  </div>
+</div></header>
+
+<main id="v-home">
+  <section class="hero"><div class="wrap hg">
+    <div class="fade">
+      <span class="tag"><i class="dot"></i> Registrations open · Batch <span class="bn">2028</span> · 100% free</span>
+      <h1>Skip the mistakes we made.<br><span class="grad">Get placed smarter.</span></h1>
+      <p class="lead" id="bLead"></p>
+      <div class="row"><a class="btn lg" href="#/" data-s="apply">Register now →</a><a class="btn g lg" href="#/" data-s="how">How it works</a></div>
+      <div class="bpick" id="bpick"></div>
+      <div class="logos"><span>Our seniors are placed at</span><b>Amazon</b><b>Intel</b><b>Razorpay</b><b>Bain</b><b>Deloitte</b></div>
+    </div>
+    <div class="card hc fade">
+      <div class="row sb"><b>Batch <span class="bn">2028</span></b><span class="pill good">Free forever</span></div>
+      <div class="big2" style="margin:16px 0 4px">🚀</div>
+      <h3 style="font-size:20px">Open to every student</h3>
+      <p class="muted">Register in two minutes and get instant access. No test, no interview, no fees.</p>
+      <ul class="chk"><li>Resources &amp; roadmaps for your batch</li><li>Private 1-to-1 senior help</li><li>Jobs, internships &amp; referrals</li></ul>
+    </div>
+  </div></section>
+
+  <section id="features" class="sec"><div class="wrap">
+    <div class="sh"><h2>Everything we wish we had</h2><p>Built by seniors who just went through the process.</p></div>
+    <div class="grid3">
+      <div class="card lift"><div class="fi">📚</div><h3>Curated resources</h3><p>DSA, CS fundamentals, development, core and non-tech roadmaps, plus resumes that cleared screening.</p></div>
+      <div class="card lift"><div class="fi">💼</div><h3>Jobs &amp; internships</h3><p>Fresh openings with deadlines and eligibility. Save and track the ones you applied to.</p></div>
+      <div class="card lift"><div class="fi">🤝</div><h3>Referrals</h3><p>When our companies open referral windows, the cohort gets first access.</p></div>
+      <div class="card lift"><div class="fi">🔒</div><h3>Private Ask a Senior</h3><p>Ask doubts one-to-one. Only you and the senior who takes it can see the chat.</p></div>
+      <div class="card lift"><div class="fi">🎯</div><h3>A page for your batch</h3><p>Resources, jobs and announcements are targeted to your batch, so you only see what matters now.</p></div>
+      <div class="card lift"><div class="fi">🧠</div><h3>Learn from mistakes</h3><p>Real interview rounds and the exact errors seniors made, so you don’t repeat them.</p></div>
+    </div>
+  </div></section>
+
+  <section id="how" class="sec alt"><div class="wrap">
+    <div class="sh"><h2>How it works</h2><p>Four simple steps.</p></div>
+    <div class="grid4">
+      <div class="card step"><i>1</i><h3>Register</h3><p>Pick your batch and fill the 2-minute form with your Google email and resume.</p></div>
+      <div class="card step"><i>2</i><h3>Sign in with Google</h3><p>Use the same email. You get instant access, with no waiting and no new password.</p></div>
+      <div class="card step"><i>3</i><h3>Learn &amp; apply</h3><p>Use resources for your batch, and track the jobs you saved and applied to.</p></div>
+      <div class="card step"><i>4</i><h3>Ask seniors</h3><p>Get private one-to-one help on resumes, interviews and doubts.</p></div>
+    </div>
+  </div></section>
+
+  <section id="mentors" class="sec hide"><div class="wrap"><div class="sh"><h2>Meet your seniors</h2><p>People who’ve been exactly where you are.</p></div><div class="grid3" id="mentorList"></div></div></section>
+
+  <section id="apply" class="sec alt"><div class="wrap ap">
+    <div><h2>Register for Batch <span class="bn">2028</span></h2><p class="muted">Register below, then sign in with the same Google email to get instant access.</p>
+      <div class="free"><b>Free forever.</b> Run by Thapar seniors (2027 batch and earlier). We never ask for money and never pay anyone.</div>
+      <ul class="chk"><li>Your resume is stored privately. Only seniors can open it.</li><li>No spam. We use your details only to run this community.</li></ul></div>
+    <div class="card">
+      <form id="f" novalidate>
+        <div class="two"><label>Full name *<input name="name" required autocomplete="name"></label>
+          <label>Google email *<input name="email" type="email" required placeholder="you@gmail.com" autocomplete="email"></label></div>
+        <div class="two"><label>Batch *<select name="batch" id="fbatch"><option>2028</option><option>2029</option><option>2030</option></select></label>
+          <label>Branch *<select name="branch" required><option value="">Select branch</option>
+          <option>COE</option><option>COPC</option><option>COSE</option><option>CSBS</option><option>ECE</option><option>ENC</option><option>EIC</option><option>VLSI</option><option>AIML</option><option>Electrical</option><option>Mechanical</option><option>Civil</option><option>Chemical</option><option>Biotechnology</option><option>Other</option></select></label></div>
+        <div class="two"><label><span id="cgLbl">CGPA *</span><input name="cgpa" type="number" step="0.01" min="0" max="10" placeholder="e.g. 8.2"></label>
+          <label>Contact number <small>(optional)</small><input name="phone" type="tel" inputmode="numeric" placeholder="10-digit number"></label></div>
+        <label>Resume (PDF, max 2 MB) *<span class="file"><input name="resume" id="resume" type="file" accept="application/pdf" required><span id="fname">Choose a PDF…</span></span></label>
+        <label>What do you want help with? <small>(optional)</small><textarea name="goal" rows="3" placeholder="DSA, resume, core roles, consulting…"></textarea></label>
+        <div class="err" id="err"></div>
+        <button class="btn lg" id="sub" type="submit">Submit registration</button>
+      </form>
+      <div id="done" class="hide ctr"><div class="big2">🎉</div><h3>Registration received!</h3><p class="muted">You’re in. Sign in with Google using this email to enter the platform.</p><button class="btn lg" id="goIn" style="margin-top:14px">Continue with Google →</button></div>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap"><div class="card cta"><div><h3>Are you a senior or alumnus?</h3><p>Batch 2027 and earlier: register as a mentor and help juniors avoid your mistakes.</p></div><a class="btn lg" href="#/mentor">Become a mentor →</a></div></div></section>
+
+  <section id="faq" class="sec"><div class="wrap nar">
+    <div class="sh"><h2>FAQ</h2></div>
+    <details><summary>Is it really free?</summary><p>Yes. No fee, no hidden charges, no paid tiers. Nobody involved is paid either.</p></details>
+    <details><summary>Who can register?</summary><p>Thapar students of batches 2028, 2029 and 2030, from any branch. Mentors are seniors and alumni of batch 2027 and earlier.</p></details>
+    <details><summary>Is there any selection or test?</summary><p>No. Register and you get access straight away. There is no test, no interview and no seat limit.</p></details>
+    <details><summary>I’m in 2029 or 2030. Do I need a CGPA?</summary><p>No. CGPA is optional for 2029 and 2030, and required for 2028 because it helps with referral eligibility.</p></details>
+    <details><summary>Which email should I use?</summary><p>The Google account you will sign in with. Approval is matched on that email.</p></details>
+    <details><summary>How do mentors get approved?</summary><p>An admin reviews every mentor registration (company, LinkedIn, resume) before giving access.</p></details>
+  </div></section>
+</main>
+
+<main id="v-mentor" class="wrap hide"><div class="mpage"><div class="ap">
+  <div><h2>Become a mentor</h2><p class="muted">For Thapar seniors and alumni of batch 2027 and earlier. Help juniors with resumes, referrals, interviews and doubts, completely free.</p>
+    <ul class="chk"><li>An admin reviews every mentor registration.</li><li>Your contact details are visible to admins only.</li><li>Once approved, sign in with Google using the same email.</li></ul>
+    <p style="margin-top:18px"><a class="ac" href="#/">← Back to home</a></p></div>
+  <div class="card">
+    <form id="mf" novalidate>
+      <div class="two"><label>Full name *<input name="name" required autocomplete="name"></label><label>Google email *<input name="email" type="email" required placeholder="you@gmail.com"></label></div>
+      <div class="two"><label>Your batch *<select name="grad_batch"><option>2027</option><option>2026</option><option>2025</option><option>2024</option><option>2023 or earlier</option></select></label><label>Company *<input name="company" required placeholder="e.g. Amazon"></label></div>
+      <div class="two"><label>Mobile number *<input name="phone" type="tel" inputmode="numeric" placeholder="10-digit number"></label><label>LinkedIn *<input name="linkedin" type="url" placeholder="https://linkedin.com/in/…"></label></div>
+      <label>GitHub <small>(optional)</small><input name="github" type="url" placeholder="https://github.com/…"></label>
+      <label>Resume (PDF, max 2 MB) *<span class="file"><input name="resume" id="mresume" type="file" accept="application/pdf"><span id="mfname">Choose a PDF…</span></span></label>
+      <div class="err" id="merr"></div>
+      <button class="btn lg" id="msub" type="submit">Submit mentor registration</button>
+    </form>
+    <div id="mdone" class="hide ctr"><div class="big2">🙌</div><h3>Thanks for stepping up!</h3><p class="muted">An admin will review your registration. Once approved, sign in with Google using this email.</p></div>
+  </div>
+</div></div></main>
+
+<main id="v-dash" class="wrap hide"><div id="dash"></div></main>
+<footer><div class="wrap">Run by Thapar seniors (2027 batch and earlier) · free, no money asked, no one paid<br>Independent student initiative, not officially affiliated with TIET.</div></footer>
+<div id="toasts"></div>
+</body>
+</html>
